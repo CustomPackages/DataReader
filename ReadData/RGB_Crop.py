@@ -3,7 +3,17 @@ import numpy as np
 from PIL import Image
 import LtoP
 import PtoL
-import OpenAndRead_Tiff
+from osgeo import gdal
+
+"""
+
+Read GeoTiff file as an array
+
+"""
+def getGeoTiffasArray(path_to_tiff):
+    dataset = gdal.Open(path_to_tiff)
+    image = dataset.ReadAsArray()
+    return image
 
 """
 
@@ -27,7 +37,7 @@ CROP IMAGE
 
 def saveCrop(BAND_folder, Any_BAND, MAP_folder, RGB_CHIP_FOLDER, MAP_CHIP_FOLDER, RGB_NUMPY_FOLDER): 
 
-    mylist = OpenAndRead_Tiff.readBands(BAND_folder)
+    mylist = readBands(BAND_folder)
     counter = 0
     C = np.zeros((256,256,3), np.float32)
     
@@ -55,7 +65,7 @@ def saveCrop(BAND_folder, Any_BAND, MAP_folder, RGB_CHIP_FOLDER, MAP_CHIP_FOLDER
             XY_BOTTOM_RIGHT = LtoP.LATLONG_TO_XY(MAP_folder, bottomright[0], bottomright[1])
             
             #change the shape of map image tile to 256*256*3
-            map_image = OpenAndRead_Tiff.getGeoTiffasArray(MAP_folder)
+            map_image = getGeoTiffasArray(MAP_folder)
             map_image = np.moveaxis(map_image, 0, -1)
             chip_map = map_image[XY_TOP_LEFT[0]:XY_BOTTOM_RIGHT[0], XY_TOP_LEFT[1]:XY_BOTTOM_RIGHT[1]] 
             print('chip_map shape : ' + str(chip_map.shape))
@@ -91,6 +101,10 @@ def saveCrop(BAND_folder, Any_BAND, MAP_folder, RGB_CHIP_FOLDER, MAP_CHIP_FOLDER
 
                 #counter + 1
                 counter +=1
+
+
+
+
 
 
 
