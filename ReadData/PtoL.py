@@ -44,7 +44,7 @@ def yC(path_to_tiff, col,row):
 
 
 #use this to get final lat long 
-def XY_to_LATLONG(path_to_tiff, col, row):
+def XY_To_LATLONG(path_to_tiff, col, row):
     x1 = xC(path_to_tiff, col, row)
     y1 = yC(path_to_tiff, col, row)
     transform = TRANSFORM(path_to_tiff)
