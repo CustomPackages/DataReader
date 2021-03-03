@@ -1,8 +1,8 @@
 import gdal 
 import numpy as np
 
-def readTif(filename):
-  band=gdal.open(filename)
+def ReadTif(filename):
+  band=gdal.Open(filename)
   band = band.ReadAsArray()
   band = np.array(band)
   return band
