@@ -3,5 +3,5 @@ from .LatLong_toPix import LATLONG_TO_XY
 from .Pix_toLatLong import XY_TO_LATLONG
 from .RGB_Crop import saveCrop
 from .read import read
-from .get_Tiles import get_tiles
-from .Norm_data import normalize_image, find_mean, find_stdev, Gaussian_normalize
+from .get_tiles import get_tiles
+from .NormData import normalize_image, find_mean, find_stdev, Gaussian_normalize
