@@ -4,16 +4,8 @@ from PIL import Image
 import LtoP
 import PtoL
 from osgeo import gdal
+import read
 
-"""
-
-Read GeoTiff file as an array
-
-"""
-def getGeoTiffasArray(path_to_tiff):
-    dataset = gdal.Open(path_to_tiff)
-    image = dataset.ReadAsArray()
-    return image
 
 """
 
@@ -25,7 +17,7 @@ def readBands(folder):
     mylist = []
     for file in files:
         f = folder + '/BAND%d'%file + '.tif'
-        arr = getGeoTiffasArray(f)
+        arr = read(f)
         mylist.append((arr))
     return mylist
 
@@ -65,7 +57,7 @@ def saveCrop(BAND_folder, Any_BAND, MAP_folder, RGB_CHIP_FOLDER, MAP_CHIP_FOLDER
             XY_BOTTOM_RIGHT = LtoP.LATLONG_TO_XY(MAP_folder, bottomright[0], bottomright[1])
             
             #change the shape of map image tile to 256*256*3
-            map_image = getGeoTiffasArray(MAP_folder)
+            map_image = read(MAP_folder)
             map_image = np.moveaxis(map_image, 0, -1)
             chip_map = map_image[XY_TOP_LEFT[0]:XY_BOTTOM_RIGHT[0], XY_TOP_LEFT[1]:XY_BOTTOM_RIGHT[1]] 
             print('chip_map shape : ' + str(chip_map.shape))
