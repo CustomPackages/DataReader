@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 with open("README.md", "r") as readme_file:
     readme = readme_file.read()
 
-requirements = ["ipython>=6", "numpy", "gdal"]
+requirements = ["ipython>=6", "numpy", "gdal", "opencv", "PIL"]
 
 setup(
     name="paulSubha998",
