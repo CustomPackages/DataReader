@@ -49,12 +49,12 @@ def saveCrop(BAND_folder, Any_BAND, MAP_folder, RGB_CHIP_FOLDER, MAP_CHIP_FOLDER
             print('chip_band1 : ' + str(chip_band1.shape))
             
             #calculating lat long coordinates of top left and bottom right point of the tile
-            topleft = PtoL.XY_TO_LATLONG(Any_BAND, i, j)
-            bottomright = PtoL.XY_TO_LATLONG(Any_BAND, i+256, j+256)
+            topleft = Pix_toLatLong.XY_TO_LATLONG(Any_BAND, i, j)
+            bottomright = Pix_toLatLong.XY_TO_LATLONG(Any_BAND, i+256, j+256)
             
             #calculating the pixel coordinates in the map image corresponding to the lat long coordinates calculated above 
-            XY_TOP_LEFT = LtoP.LATLONG_TO_XY(MAP_folder, topleft[0], topleft[1])
-            XY_BOTTOM_RIGHT = LtoP.LATLONG_TO_XY(MAP_folder, bottomright[0], bottomright[1])
+            XY_TOP_LEFT = LatLong_toPix.LATLONG_TO_XY(MAP_folder, topleft[0], topleft[1])
+            XY_BOTTOM_RIGHT = LatLong_toPix.LATLONG_TO_XY(MAP_folder, bottomright[0], bottomright[1])
             
             #change the shape of map image tile to 256*256*3
             map_image = read(MAP_folder)
