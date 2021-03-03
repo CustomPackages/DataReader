@@ -18,7 +18,6 @@ def openWithGdal(path_to_tiff):
     return data_set
 
 def readBands(path_to_tiff):
-    # '/huser/users/trainee/vihan/Ahmedabad/AHM_BAND/16334311-518-1-5-X-STUC00OTD-_hrdpd_Sarkhej_India_'
     files = [1,2,3]
     mylist = []
     for file in files:
