@@ -25,9 +25,9 @@ def read(filename, width=None, height=None, header_size=0, dtype=np.uint16,memma
             nbands = ds.RasterCount
             width = ds.RasterXSize
             height = ds.RasterYSize
-            print('Windth       : ',width)
-            print('Height       : ',height)
-            print('Band             : ',nbands)
+            print('Windth : ',width)
+            print('Height : ',height)
+            print('Band   : ',nbands)
 
             print('Giving the Numpy Array of Images')
             image = np.ones((height,width),np.float32)
