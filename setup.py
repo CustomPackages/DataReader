@@ -14,7 +14,7 @@ setup(
     long_description=readme,
     long_description_content_type="text/markdown",
     url="https://github.com/CustomPackages/DataReader",
-    packages=['readData'],
+    packages=['ReadData'],
     install_requires=requirements,
     classifiers=[
         "Programming Language :: Python :: 3.7",
