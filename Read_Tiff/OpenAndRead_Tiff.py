@@ -21,7 +21,7 @@ def readBands(path_to_tiff):
     files = [1,2,3]
     mylist = []
     for file in files:
-        f = folder + '/BAND%d'%file + '.tif'
+        f = path_to_tiff + '/BAND%d'%file + '.tif'
         arr = getGeoTiffasArray(f)
         mylist.append((arr))
     return mylist
