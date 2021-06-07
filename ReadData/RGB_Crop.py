@@ -37,10 +37,8 @@ def saveCrop(BAND_folder, Any_BAND, MAP_folder, RGB_CHIP_FOLDER, MAP_CHIP_FOLDER
     band1 = mylist[0]
     band2 = mylist[1]
     band3 = mylist[2]
-    band = mylist[0]
     
-    for i in np.arange(0, band.shape[0], 256):
-        
+    for i in np.arange(0, band1.shape[0], 256):
         for j in np.arange(0, band.shape[1], 256):
             chip_band1 = band1[i:i+256, j:j+256]
             chip_band2 = band2[i:i+256, j:j+256]
