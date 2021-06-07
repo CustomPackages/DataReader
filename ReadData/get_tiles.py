@@ -20,7 +20,7 @@ def save_png(tiles,filename,string):
 # here in both cases filename is the the name of the directory where you want to save and
 # string is the name of the files at which name you want to save
 
-def get_tiles(data,M,N,mode,filename,string):
+def get_tiles(data,M,N,filename,string):
     tiles = list()
 
     for i in range(0,data.shape[0],M):
@@ -43,7 +43,4 @@ def get_tiles(data,M,N,mode,filename,string):
     for i in range(len(tiles)):
         tiles[i]= np.float32(tiles[i])
    
-    if mode == 0:
-        save_png(tiles,filename,string)
-    else:
-        save_npy(tiles,filename,string)
+    return tiles
