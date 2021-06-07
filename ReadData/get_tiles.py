@@ -20,7 +20,7 @@ def save_png(tiles,filename,string):
 # here in both cases filename is the the name of the directory where you want to save and
 # string is the name of the files at which name you want to save
 
-def get_tiles(data,M,N,filename,string):
+def get_tiles(data,M,N):
     tiles = list()
 
     for i in range(0,data.shape[0],M):
