@@ -2,7 +2,7 @@ import numpy as np
 import os
 
 
-def read(filename, width=None, height=None, header_size=0, dtype=np.uint16,memmap=0, mode='r'):
+def readImageData(filename, width=None, height=None, header_size=0, dtype=np.uint16,memmap=0, mode='r'):
     """
 
     :param filename:
@@ -25,11 +25,6 @@ def read(filename, width=None, height=None, header_size=0, dtype=np.uint16,memma
             nbands = ds.RasterCount
             width = ds.RasterXSize
             height = ds.RasterYSize
-            print('Windth : ',width)
-            print('Height : ',height)
-            print('Band   : ',nbands)
-
-            print('Giving the Numpy Array of Images')
             image = np.ones((height,width),np.float32)
             band = ds.GetRasterBand(1)
             image[:,:] = np.float32(band.ReadAsArray(0, 0, width, height))
