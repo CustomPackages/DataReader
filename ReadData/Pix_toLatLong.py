@@ -51,6 +51,6 @@ def XY_TO_LATLONG(path_to_tiff, col, row):
     latlong = transform.TransformPoint(x1, y1)
     lat = latlong[0]
     lon = latlong[1]
-    final_latlong = (lat,lon)
+    final_latlong = [lat,lon]
     return final_latlong
 
