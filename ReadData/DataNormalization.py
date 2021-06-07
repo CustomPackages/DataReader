@@ -8,7 +8,7 @@ Created on Fri Feb 26 11:54:58 2021
 import numpy as np
 from PIL import Image
 import glob
-from ReadData import ReadData
+from readImageData import readImageData
 #%%
 def normalize_image(filename):
     """
@@ -20,7 +20,7 @@ def normalize_image(filename):
         image_asarray : numpy array of the image
                         that is normalized by being divided by 255
     """
-    data = ReadData(filename)
+    data = readImageData(filename)
     if data.max != 0:
         norm_data = data/data.max()
     else:
@@ -41,7 +41,7 @@ def find_mean(image_path):
     mean_sum = 0
 
     for image in all_images:
-        img_asarray = ReadData(image)
+        img_asarray = readImageData(image)
         individual_mean = np.mean(img_asarray)
         mean_sum += individual_mean
        
@@ -68,7 +68,7 @@ def find_stdev(image_path):
     std_sum = 0
 
     for image in all_images:
-        img_asarray = ReadData(image)
+        img_asarray = readImageData(image)
         individual_stdev = np.std(img_asarray)
         std_sum += individual_stdev
 
@@ -84,7 +84,7 @@ def Gaussian_normalize(image_path):
     all_images = glob.glob(image_path)
     data = []
     for image in all_images:
-        img_asarray = ReadData(image)
+        img_asarray = readImageData(image)
         norm_data = (img_asarray-mean)/std
         data.append(norm_data)
     return data    
